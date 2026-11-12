@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+_SRC = Path(__file__).resolve().parent.parent / "src"
+if str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+
 # evaluate.py
 """Run a trained checkpoint against the held-out Testing set and produce the
 figures referenced in the paper: confusion matrix, ROC curves, and a grid of

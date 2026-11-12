@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+_SRC = Path(__file__).resolve().parent.parent / "src"
+if str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+
 # visualizer.py
 """Dataset-inspection figures: a sample grid and the class distribution
 bar chart referenced in the paper's Dataset section."""
