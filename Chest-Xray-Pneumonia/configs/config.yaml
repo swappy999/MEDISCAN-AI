@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Chest X-Ray Pneumonia Detection: Configuration (TensorFlow / Keras)
+#  Dataset: Kaggle Chest X-Ray Images (Pneumonia)
+#  https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+# ─────────────────────────────────────────────────────────────────────────────
+
+seed: 42
+
+# Data
+data:
+  root_dir: data/raw          # Place Kaggle dataset here (train/ val/ test/ subfolders)
+  image_size: 224
+
+# Model
+model:
+  name: densenet121           # densenet121 | resnet50
+  pretrained: true            # Use ImageNet weights as starting point
+  dropout: 0.5
+
+# Training
+training:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  scheduler: cosine           # cosine | step | plateau
+  patience: 5                 # Early stopping patience (epochs without improvement)
+  use_class_weights: true     # Handle the 3:1 Pneumonia:Normal imbalance
+  mixed_precision: true       # float16 compute on GPU (ignored on CPU)
+
+# Outputs
+output:
+  model_dir: outputs/models
+  log_dir: outputs/logs
+  viz_dir: outputs/visualizations
+  reports_dir: outputs/reports
+  best_model_name: best_model.keras
+
+# Evaluation
+evaluation:
+  threshold: 0.5

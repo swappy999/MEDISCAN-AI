@@ -1,0 +1,69 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+*.pyc
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+venv/
+env/
+.venv/
+ENV/
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── Data (too large for git) ──────────────────────────────────────────────────
+data/raw/
+data/processed/
+data/sample/
+
+# ── Model checkpoints (ignore extra checkpoints, keep released PyTorch weights) ─
+outputs/models/*.pth
+!outputs/models/best_model_pytorch.pth
+outputs/models/*.pt
+outputs/models/*.bin
+outputs/models/*.onnx
+outputs/models/*.keras
+outputs/models/*.h5
+
+# ── TensorBoard logs ──────────────────────────────────────────────────────────
+outputs/logs/
+runs/
+tensorboard_logs/
+
+# ── OS files ──────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Temporary / cache ─────────────────────────────────────────────────────────
+*.tmp
+*.temp
+*.cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+*.log
+
+# ── Keep placeholder files ────────────────────────────────────────────────────
+!**/.gitkeep

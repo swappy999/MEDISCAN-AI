@@ -1,0 +1,56 @@
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Dependencies & virtual environments
+node_modules/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Python caches & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Frontend build & Vite artifacts
+dist/
+build/
+.vite/
+
+# Logs, OS & editor files
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local runtime databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local runtime uploads & generated reports/heatmaps
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/results/*
+!backend/results/.gitkeep
+uploads/*
+results/*
+
+# Raw datasets & large external archives (re-download per README)
+datasets/
+Chest-Xray-Pneumonia/data/
+*.zip
+*.tar
+*.tar.gz

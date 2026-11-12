@@ -1,0 +1,197 @@
+{
+  "validator_ready": true,
+  "verified_at": "2026-11-11T20:06:56.091410+00:00",
+  "thresholds": {
+    "cos_accept": 0.68,
+    "cos_uncertain": 0.62,
+    "maha_accept": 46.1,
+    "maha_uncertain": 52.1,
+    "prob_accept": 0.8988,
+    "prob_uncertain": 0.7488,
+    "sat_mean_max": 0.18,
+    "white_ratio_max": 0.42
+  },
+  "held_out_metrics": {
+    "brain_mri_test_total": 1311,
+    "brain_mri_accepted": 1305,
+    "brain_mri_rejected": 6,
+    "brain_mri_sensitivity": 0.9954,
+    "brain_mri_per_class": {
+      "glioma": {
+        "accepted": 298,
+        "total": 300,
+        "recall": 0.9933
+      },
+      "meningioma": {
+        "accepted": 303,
+        "total": 306,
+        "recall": 0.9902
+      },
+      "notumor": {
+        "accepted": 404,
+        "total": 405,
+        "recall": 0.9975
+      },
+      "pituitary": {
+        "accepted": 300,
+        "total": 300,
+        "recall": 1.0
+      }
+    },
+    "chest_xray_test_total": 624,
+    "chest_xray_rejected": 624,
+    "chest_xray_false_accepts": 0,
+    "chest_xray_specificity": 1.0,
+    "non_chest_benchmark_total": 9,
+    "non_chest_benchmark_rejected": 9,
+    "non_chest_benchmark_false_accepts": 0,
+    "edge_probes_rejected": "4/4",
+    "overall_non_mri_specificity": 1.0,
+    "false_acceptance_rate": 0.0
+  },
+  "non_chest_benchmark_details": {
+    "03_hand_xray.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.4851
+    },
+    "04_wrist_xray.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.3159
+    },
+    "05_foot_xray.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.406
+    },
+    "06_knee_xray.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.3287
+    },
+    "07_dental_xray.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.3052
+    },
+    "09_ct_scan.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.5032
+    },
+    "10_photograph.jpg": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "ORDINARY_PHOTOGRAPH",
+      "score": 0.01
+    },
+    "11_medical_report.png": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "DOCUMENT_OR_REPORT",
+      "score": 0.02
+    },
+    "12_corrupted_image.jpg": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "CORRUPTED_FILE",
+      "score": 0.0
+    }
+  },
+  "edge_probe_details": {
+    "blank_black": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "CORRUPTED_OR_BLANK"
+    },
+    "blank_white": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "CORRUPTED_OR_BLANK"
+    },
+    "uniform_gray": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "CORRUPTED_OR_BLANK"
+    },
+    "random_noise": {
+      "accepted": false,
+      "status": "REJECTED",
+      "type": "ORDINARY_PHOTOGRAPH"
+    }
+  },
+  "synthetic_mri_drawing_probe": {
+    "is_valid": false,
+    "image_type": "NON_BRAIN_MRI",
+    "validation_status": "REJECTED",
+    "reason": "Out-of-distribution input rejected (mri_cos=0.695, mahalanobis=55.9, clf_prob=0.960).",
+    "message": "Unsupported Image \u2014 Input does not match a valid Brain MRI scan. Please upload a Brain MRI image (JPG, JPEG, or PNG).",
+    "score": 0.6946,
+    "distance": 55.86,
+    "metrics": {
+      "cosine_similarity": 0.6946,
+      "mahalanobis_distance": 55.86,
+      "mri_classifier_prob": 0.9595,
+      "cxr_similarity": 0.2195,
+      "nearest_prototype": "notumor",
+      "thresholds": {
+        "cos_accept": 0.68,
+        "maha_accept": 46.1,
+        "prob_accept": 0.8988
+      }
+    }
+  },
+  "limitations": "External labeled non-brain body-part MRI datasets (e.g. spine or knee MRI) and real clinical extremity/CT cohorts were not present on disk; rejection of unseen body-part MRIs relies on out-of-distribution Mahalanobis/cosine manifold distance from Brain MRI class centroids plus supervised classification against Chest X-rays.",
+  "sample_mri_false_rejections": [
+    {
+      "file": "glioma/Te-gl_0023.jpg",
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.6756,
+      "distance": 59.74
+    },
+    {
+      "file": "glioma/Te-gl_0114.jpg",
+      "status": "UNCERTAIN",
+      "type": "UNCERTAIN",
+      "score": 0.7213,
+      "distance": 49.32
+    },
+    {
+      "file": "meningioma/Te-me_0065.jpg",
+      "status": "UNCERTAIN",
+      "type": "UNCERTAIN",
+      "score": 0.8371,
+      "distance": 46.47
+    },
+    {
+      "file": "meningioma/Te-me_0126.jpg",
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.579,
+      "distance": 35.07
+    },
+    {
+      "file": "meningioma/Te-me_0270.jpg",
+      "status": "UNCERTAIN",
+      "type": "UNCERTAIN",
+      "score": 0.6633,
+      "distance": 43.28
+    },
+    {
+      "file": "notumor/Te-no_0097.jpg",
+      "status": "REJECTED",
+      "type": "NON_BRAIN_MRI",
+      "score": 0.689,
+      "distance": 64.3
+    }
+  ],
+  "sample_cxr_false_accepts": []
+}
