@@ -18,14 +18,14 @@ set "ROOT_DIR=%~dp0"
 
 :: 1. Launch Chest X-Ray Python FastAPI ML Service
 echo [1/4] Launching Chest X-Ray FastAPI ML Service...
-start "MediScan AI - Chest X-Ray Service (FastAPI :8000)" cmd /k "cd /d "%ROOT_DIR%ml-service" && title MediScan AI - Chest X-Ray Service :8000 && color 0a && echo =================================================== && echo   MediScan AI - Chest X-Ray Service (FastAPI :8000) && echo =================================================== && "%ROOT_DIR%Chest-Xray-Pneumonia\venv\Scripts\python.exe" -m uvicorn app:app --host 127.0.0.1 --port 8000"
+start "MediScan AI - Chest X-Ray Service (FastAPI :8000)" cmd /k "cd /d "%ROOT_DIR%DL\ml-services\chest-xray" && title MediScan AI - Chest X-Ray Service :8000 && color 0a && echo =================================================== && echo   MediScan AI - Chest X-Ray Service (FastAPI :8000) && echo =================================================== && "%ROOT_DIR%DL\chest-xray\venv\Scripts\python.exe" -m uvicorn app:app --host 127.0.0.1 --port 8000"
 
 :: Brief delay to allow Chest X-Ray ML service to initialize
 timeout /t 2 /nobreak >nul
 
 :: 2. Launch Brain MRI Python FastAPI ML Service
 echo [2/4] Launching Brain MRI FastAPI ML Service...
-start "MediScan AI - Brain MRI Service (FastAPI :8001)" cmd /k "cd /d "%ROOT_DIR%mri-service" && title MediScan AI - Brain MRI Service :8001 && color 0d && echo =================================================== && echo   MediScan AI - Brain MRI Service (FastAPI :8001) && echo =================================================== && "%ROOT_DIR%Brain-MRI-Tumour\venv\Scripts\python.exe" -m uvicorn app:app --host 127.0.0.1 --port 8001"
+start "MediScan AI - Brain MRI Service (FastAPI :8001)" cmd /k "cd /d "%ROOT_DIR%DL\ml-services\brain-mri" && title MediScan AI - Brain MRI Service :8001 && color 0d && echo =================================================== && echo   MediScan AI - Brain MRI Service (FastAPI :8001) && echo =================================================== && "%ROOT_DIR%DL\brain-mri-tumor\venv\Scripts\python.exe" -m uvicorn app:app --host 127.0.0.1 --port 8001"
 
 :: Brief delay to allow Brain MRI ML service to initialize
 timeout /t 2 /nobreak >nul

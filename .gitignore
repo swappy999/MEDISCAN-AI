@@ -9,10 +9,14 @@ node_modules/
 .venv/
 venv/
 env/
+**/venv/
+**/.venv/
 *.egg-info/
+**/*.egg-info/
 
 # Python caches & build artifacts
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
@@ -48,9 +52,22 @@ backend/results/*
 uploads/*
 results/*
 
-# Raw datasets & large external archives (re-download per README)
+# Raw large datasets & archives (exclude from Git, keep benchmark test fixtures)
+DL/chest-xray/dataset/*
+!DL/chest-xray/dataset/.gitkeep
+DL/chest-xray/data/*
+!DL/chest-xray/data/.gitkeep
+DL/brain-mri-tumor/dataset/*
+!DL/brain-mri-tumor/dataset/.gitkeep
 datasets/
 Chest-Xray-Pneumonia/data/
 *.zip
 *.tar
 *.tar.gz
+
+# Model checkpoints rules (ignore extra weights, preserve released canonical checkpoints)
+*.pth
+!DL/chest-xray/models/checkpoints/best_model_pytorch.pth
+!DL/chest-xray/outputs/models/best_model_pytorch.pth
+!DL/brain-mri-tumor/models/checkpoints/tumor_model.pth
+!DL/brain-mri-tumor/checkpoints/tumor_model.pth
