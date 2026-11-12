@@ -10,7 +10,8 @@ positive rescaling of the logits, so predictions and errors are identical
 before and after; only the reported confidence changes).
 
 Usage:
-    python src/calibrate.py --data_dir ./data --model_path checkpoints/tumor_model.pth
+    cd DL/brain-mri-tumor
+    python evaluation/calibrate.py --data_dir dataset --model_path models/checkpoints/tumor_model.pth --group_map figshare_patient_map.json
 """
 import argparse
 import os
